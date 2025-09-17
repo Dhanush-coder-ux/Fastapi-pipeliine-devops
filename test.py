@@ -4,6 +4,6 @@ from main import app
 client = TestClient(app)
 
 def test_root():
-    response = client.get("/")
+    response = client.get("/todo")
     assert response.status_code == 200
 
