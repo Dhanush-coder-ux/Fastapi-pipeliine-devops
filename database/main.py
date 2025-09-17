@@ -1,6 +1,7 @@
 from sqlalchemy.ext.asyncio import async_sessionmaker,create_async_engine
 from sqlalchemy.ext.declarative import declarative_base
-DB_URL = "postgresql+asyncpg://neondb_owner:npg_fEXwsG8uQ5tq@ep-delicate-grass-a138r5uz-pooler.ap-southeast-1.aws.neon.tech/neondb"
+import os
+DB_URL = os.getenv("DB_URL","postgresql+asyncpg://postgres:password@localhost/fastapi_db")
 ENGINE = create_async_engine(DB_URL)
 SessionLocal = async_sessionmaker(ENGINE)
 BASE = declarative_base()
