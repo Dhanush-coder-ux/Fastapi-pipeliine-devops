@@ -14,8 +14,8 @@ jobs:
         image: postgres:14
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: testdb
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: fastapi_db
         ports:
           - 5432:5432
         options: >-
@@ -39,7 +39,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Set test DB URL
-        run: echo "DB_URL=postgresql+asyncpg://postgres:postgres@localhost:5432/testdb" >> $GITHUB_ENV
+        run: echo "DB_URL=postgresql+asyncpg://postgres:password@localhost:5432/fastapi_db" >> $GITHUB_ENV
 
       - name: Run tests
         run: pytest -v test.py
+
