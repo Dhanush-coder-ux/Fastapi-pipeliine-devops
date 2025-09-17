@@ -1,4 +1,6 @@
-uvicorn
 fastapi
+uvicorn
 pydantic
 sqlalchemy
+pytest
+httpx
